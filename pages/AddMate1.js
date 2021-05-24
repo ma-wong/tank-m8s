@@ -4,6 +4,12 @@ import Dropdown from "../components/Dropdown";
 
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'gray',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     button: {
         backgroundColor: "blue",
         padding: 20,
@@ -14,7 +20,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#fff',
         textAlign: "center"
-    },
+    }
    
 });
 
@@ -50,7 +56,7 @@ class AddMate1 extends Component {
     
     render() {
         return (
-            <ScrollView>
+            <View style={styles.container}>
                 <View >
                     <Text>Step 1:</Text>
                     <Text>Choose a tank to add to</Text>
@@ -79,7 +85,7 @@ class AddMate1 extends Component {
                 </View>
 
 
-            </ScrollView>
+            </View>
         );
     }
 }
