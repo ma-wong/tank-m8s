@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 import Dropdown from "../components/Dropdown";
 
 
@@ -32,9 +32,9 @@ class AddMate1 extends Component {
         this.state = {
             selectedTank: "hello",
             tankOptions: [ {id: 1, name: "Tank 1"}, {id: 2, name: "Tank 2"}, {id: 3, name: "Tank 3"} ],
-            // tankOptions: ["Tank 2", "Tank 3", "Tank 4"]
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
-            selectedType: ""
+            selectedType: "",
+
         }
     }
 
@@ -74,14 +74,16 @@ class AddMate1 extends Component {
 
                     {this.state.mateTypes.map((elem, index) => {
                         return (
-                            <TouchableOpacity
+                            <TouchableHighlight
                                 onPress={event => this.setSelectedType(event, index)}
                                 style={styles.button}
+                                activeOpacity={.5}
+                                underlayColor={"green"}
                             >
                                 
                                 <Text style={styles.buttonText}>{elem}</Text>
                             
-                            </TouchableOpacity>
+                            </TouchableHighlight>
                         )
                     })}
                 </View>

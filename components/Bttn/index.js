@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 const styles = StyleSheet.create({
     button: {
@@ -13,12 +13,12 @@ function Bttn({ onSubmit, text }) {
   return (
     <View>
       
-        <TouchableOpacity 
+        <TouchableHighlight 
             // onPress={onSubmit}
             style={styles.button}
         >
             <Text style={{ fontSize: 20, color: '#fff' }}>{text}</Text>
-        </TouchableOpacity>
+        </TouchableHighlight>
 
     </View>
   );
