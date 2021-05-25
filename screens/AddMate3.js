@@ -30,15 +30,16 @@ class AddMate3 extends Component {
         super(props)
 
         this.state = {
-            mateName: ""
-            
+            mateName: "",
+            species: ""
         }
     }
 
     
     handleInputChange = event => {
-        this.setState ({
-            mateName: event.target.value
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
         }, function() {
             console.log(this.state.mateName)
         })
@@ -63,15 +64,16 @@ class AddMate3 extends Component {
                         text= {this.state.mateName}
                         onChangeText= {this.handleInputChange}
                         placeholder= "Chowdie"
+                        name="mateName"
                     />
 
                     <Text>Species</Text>
                     <UserInput 
-                        text= {this.state.mateName}
+                        text= {this.state.species}
                         onChangeText= {this.handleInputChange}
                         placeholder= "Gold Fish"
+                        // name="species"
                     />
-
                 </View>
 
 

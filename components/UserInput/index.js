@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function UserInput ({ text, onChangeText, placeholder }) {
+function UserInput ({ text, onChangeText, placeholder, name }) {
   
   return (
     <View>
@@ -19,6 +19,7 @@ function UserInput ({ text, onChangeText, placeholder }) {
         onChange={onChangeText}
         value={text}
         placeholder={placeholder}
+        name={name}
       />
       
     </View>
