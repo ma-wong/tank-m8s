@@ -23,18 +23,18 @@ function App() {
     // </View>
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Add A Tank Mate"
           component={AddMate1}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Home"
           component={Home}
         /> */}
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Add Mate 3/4"
           component={AddMate3}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

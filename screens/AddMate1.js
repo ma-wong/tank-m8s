@@ -46,13 +46,13 @@ class AddMate1 extends Component {
         })
     }
 
-    // setSelectedType = (value) => {
-    //     this.setState({
-    //         selectedType: value
-    //     }, () => {
-    //         console.log(this.state.selectedType)
-    //     })
-    // }
+    setSelectedType = (event, index) => {
+        this.setState({
+            selectedType: this.state.mateTypes[index]
+        }, () => {
+            console.log(this.state.selectedType)
+        })
+    }
     
     render() {
         return (
@@ -75,8 +75,10 @@ class AddMate1 extends Component {
                     {this.state.mateTypes.map((elem, index) => {
                         return (
                             <TouchableOpacity
-                                // onPress={this.setSelectedType}
-                                style={styles.button}>
+                                onPress={event => this.setSelectedType(event, index)}
+                                style={styles.button}
+                            >
+                                
                                 <Text style={styles.buttonText}>{elem}</Text>
                             
                             </TouchableOpacity>
