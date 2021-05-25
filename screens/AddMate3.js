@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View, CheckBox} from 'react-native';
 import UserInput from "../components/UserInput";
 import AddReminder from "../components/AddReminder";
+import Bttn from "../components/Bttn";
 
 
 const styles = StyleSheet.create({
@@ -121,6 +122,10 @@ class AddMate3 extends Component {
                     
                     />}
                 </View>
+
+                <Bttn 
+                    text= "Create Mate"                
+                />
 
 
             </View>
