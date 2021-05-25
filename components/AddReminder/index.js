@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Switch } from "react-native";
+import { View, Text, Switch, StyleSheet} from "react-native";
+import TimePicker from 'react-time-picker';
 import UserInput from "../UserInput";
 import Dropdown from "../Dropdown";
 
@@ -7,13 +8,23 @@ function AddReminder ({ text }) {
   const [label, onChangeLabel] = React.useState("");
   const [repeatValue, setRepeatValue] = React.useState("Never");
   const [snooze, setSnooze] = React.useState(false);
+  const [time, setTime] = React.useState('');
 
   const repeatOptions = [{id: 1, name: "Never"}, {id: 2, name: "Once a day"}, {id: 3, name: "Once a week"}, {id: 4, name: "Once a month"} ];
   const toggleSnooze = () => setSnooze(previousState => !previousState);
 
   return (
     <View>
+
       <Text>Time</Text>
+      <TimePicker
+        onChange={setTime}
+        value={time}
+        disableClock={true}
+        hourPlaceholder="00"
+        minutePlaceholder="00"
+        autoFocus={true}
+      />
 
       <Text>Label</Text>
       <UserInput 
@@ -42,3 +53,11 @@ function AddReminder ({ text }) {
 }
 
 export default AddReminder;
+
+
+const styles = StyleSheet.create({
+  timePicker: {
+    color: "blue"
+  }
+ 
+});
