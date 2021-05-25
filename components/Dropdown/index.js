@@ -13,7 +13,7 @@ function Dropdown ({ selectedItem, itemOptions, setSelectedValue }) {
         {/* <Picker.Item label="poop" value="java" />
         <Picker.Item label="JavaScript" value="js" /> */}
 
-        {itemOptions.map((value, index) => {
+        {itemOptions.map((value) => {
           return (
             <Picker.Item
               key={value.id}

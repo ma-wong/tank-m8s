@@ -118,7 +118,7 @@ class AddMate3 extends Component {
                 <View>
                     {this.state.reminderSelected && 
                     <AddReminder 
-                        text="Eat my Butt"
+                    
                     />}
                 </View>
 
