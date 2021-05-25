@@ -96,7 +96,6 @@ class AddMate3 extends Component {
                         text= {this.state.mateName}
                         onChangeText= {this.setName}
                         placeholder= "Chowdie"
-                        // name="mateName"
                     />
 
                     <Text>Species</Text>
@@ -104,7 +103,6 @@ class AddMate3 extends Component {
                         text= {this.state.species}
                         onChangeText= {this.setSpecies}
                         placeholder= "Gold Fish"
-                        // name="species"
                     />
                 </View>
 
@@ -116,6 +114,12 @@ class AddMate3 extends Component {
                     />
                     
                     <Text style={styles.label}>Add Reminder</Text>
+                </View>
+                <View>
+                    {this.state.reminderSelected && 
+                    <AddReminder 
+                        text="Eat my Butt"
+                    />}
                 </View>
 
 
