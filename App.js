@@ -8,34 +8,30 @@ import Home from "./screens/Home";
 import AddMate3 from "./screens/AddMate3";
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function App() {
   
   return (
-    // <View style={styles.container}>
-    //   <Text style={styles.text}>Hammy is stinky and smelly. My Chowdie bears is also smelly</Text>
-    //   <StatusBar style="auto" />
-    //   <AddMate1 />
-    // </View>
     <NavigationContainer>
-      <Stack.Navigator>
-        {/* <Stack.Screen
-          name="Add A Tank Mate"
-          component={AddMate1}
-        /> */}
-        {/* <Stack.Screen
+      <Tab.Navigator>
+
+        <Tab.Screen
           name="Home"
           component={Home}
-        /> */}
-        <Stack.Screen
+        />
+        <Tab.Screen
+          name="Add A Tank Mate"
+          component={AddMate1}
+        />
+        <Tab.Screen
           name="Add Mate 3/4"
           component={AddMate3}
         />
-      </Stack.Navigator>
+        
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
