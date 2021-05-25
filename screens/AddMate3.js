@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
+import { ScrollView, StyleSheet, Text, View, CheckBox} from 'react-native';
 import UserInput from "../components/UserInput";
+import AddReminder from "../components/AddReminder";
 
 
 const styles = StyleSheet.create({
@@ -20,6 +21,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#fff',
         textAlign: "center"
+    },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+    },
+    checkbox: {
+        alignSelf: "center",
+    },
+    label: {
+        margin: 8,
     }
    
 });
@@ -31,19 +42,40 @@ class AddMate3 extends Component {
 
         this.state = {
             mateName: "",
-            species: ""
+            species: "",
+            reminderSelected: false
         }
     }
 
-    
-    handleInputChange = event => {
-        const { name, value } = event.target;
+    setName = (mateName) => {
         this.setState({
-            [name]: value
-        }, function() {
+            mateName: mateName
+        }, () => {
             console.log(this.state.mateName)
         })
-    };
+    }
+
+    setSpecies = (species) => {
+        this.setState({
+            species: species
+        }, () => {
+            console.log(this.state.species)
+        })
+    }
+
+    setSelection = () => {
+        if (this.state.reminderSelected === false) {
+            this.setState({
+                reminderSelected: true
+            })
+        }
+        else {
+            this.setState({
+                reminderSelected: false
+            })
+        }
+        
+    }
 
     render() {
         return (
@@ -62,18 +94,28 @@ class AddMate3 extends Component {
                     <Text>Name</Text>
                     <UserInput
                         text= {this.state.mateName}
-                        onChangeText= {this.handleInputChange}
+                        onChangeText= {this.setName}
                         placeholder= "Chowdie"
-                        name="mateName"
+                        // name="mateName"
                     />
 
                     <Text>Species</Text>
                     <UserInput 
                         text= {this.state.species}
-                        onChangeText= {this.handleInputChange}
+                        onChangeText= {this.setSpecies}
                         placeholder= "Gold Fish"
                         // name="species"
                     />
+                </View>
+
+                <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        value={this.state.reminderSelected}
+                        onValueChange={this.setSelection}
+                        style={styles.checkbox}
+                    />
+                    
+                    <Text style={styles.label}>Add Reminder</Text>
                 </View>
 
 

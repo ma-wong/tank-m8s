@@ -1,4 +1,5 @@
 import React from "react";
+import { Component } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -9,17 +10,16 @@ const styles = StyleSheet.create({
   },
 });
 
-function UserInput ({ text, onChangeText, placeholder, name }) {
+function UserInput ({ text, onChangeText, placeholder }) {
   
   return (
     <View>
 
       <TextInput
         style={styles.input}
-        onChange={onChangeText}
+        onChangeText={onChangeText}
         value={text}
         placeholder={placeholder}
-        name={name}
       />
       
     </View>
