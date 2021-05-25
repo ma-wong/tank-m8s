@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, LinearProgress } from 'react-native-elements';
 import Dropdown from "../components/Dropdown";
 
 
@@ -31,6 +31,7 @@ class AddMate1 extends Component {
             tankOptions: [ {id: 1, name: "Tank 1"}, {id: 2, name: "Tank 2"}, {id: 3, name: "Tank 3"} ],
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
             selectedType: "",
+            progressVal: 0
 
         }
     }
@@ -41,6 +42,12 @@ class AddMate1 extends Component {
         }, function() {
             console.log(this.state.selectedTank)
         })
+        if (this.state.progressVal === 0) {
+            this.setState({
+                progressVal: this.state.progressVal+0.15
+            })
+        }
+        
     }
 
     setSelectedType = (event, index) => {
@@ -49,11 +56,22 @@ class AddMate1 extends Component {
         }, () => {
             console.log(this.state.selectedType)
         })
+        if (this.state.progressVal < 0.3) {
+            this.setState({
+                progressVal: this.state.progressVal+0.15
+            })
+        }
     }
     
     render() {
         return (
             <View style={styles.container}>
+                <LinearProgress 
+                    color="black"
+                    value={this.state.progressVal}
+                    trackColor="white"
+                    variant="determinate"
+                />
                 <View >
                     <Text>Step 1:</Text>
                     <Text>Choose a tank to add to</Text>

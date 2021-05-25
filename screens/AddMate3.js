@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View, CheckBox} from 'react-native';
+import { LinearProgress } from 'react-native-elements';
 import UserInput from "../components/UserInput";
 import AddReminder from "../components/AddReminder";
 import Bttn from "../components/Bttn";
@@ -33,11 +34,17 @@ class AddMate3 extends Component {
         this.state = {
             mateName: "",
             species: "",
-            reminderSelected: false
+            reminderSelected: false,
+            progressVal: .3
         }
     }
 
     setName = (mateName) => {
+        if (this.state.mateName === "") {
+            this.setState({
+                progressVal: this.state.progressVal+0.15
+            })
+        }
         this.setState({
             mateName: mateName
         }, () => {
@@ -70,6 +77,12 @@ class AddMate3 extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <LinearProgress 
+                    color="black"
+                    value={this.state.progressVal}
+                    trackColor="white"
+                    variant="determinate"
+                />
                 <View >
                     <Text>Step 3:</Text>
                     <Text>Upload a photo (optional)</Text>
