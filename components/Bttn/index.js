@@ -1,24 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Button } from 'react-native-elements';
+
 
 const styles = StyleSheet.create({
     button: {
-        padding: 20,
-        backgroundColor: "black",
-        borderRadius: 20
-
+        padding: 10,
+        width: "13rem",
+        borderRadius: 10,
+        backgroundColor: "black"
     }
 })
+
+
 function Bttn({ onSubmit, text }) {
   return (
     <View>
       
-        <TouchableHighlight 
-            // onPress={onSubmit}
-            style={styles.button}
-        >
-            <Text style={{ fontSize: 20, color: '#fff' }}>{text}</Text>
-        </TouchableHighlight>
+        <Button
+            buttonStyle= {styles.button}
+            title={text}
+            type="solid"
+        />
 
     </View>
   );

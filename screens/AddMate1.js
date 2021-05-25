@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
 import Dropdown from "../components/Dropdown";
+
 
 
 const styles = StyleSheet.create({
@@ -11,15 +13,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     button: {
-        backgroundColor: "blue",
+        backgroundColor: "black",
         padding: 20,
-        borderRadius: 5,
-        marginTop: "1rem"
-    },
-    buttonText: {
-        fontSize: 20,
-        color: '#fff',
-        textAlign: "center"
+        borderRadius: 10,
+        marginTop: "1rem",
     }
    
 });
@@ -74,16 +71,13 @@ class AddMate1 extends Component {
 
                     {this.state.mateTypes.map((elem, index) => {
                         return (
-                            <TouchableHighlight
+                            <Button
                                 onPress={event => this.setSelectedType(event, index)}
-                                style={styles.button}
+                                buttonStyle={styles.button}
                                 activeOpacity={.5}
-                                underlayColor={"green"}
-                            >
-                                
-                                <Text style={styles.buttonText}>{elem}</Text>
-                            
-                            </TouchableHighlight>
+                                title= {elem}
+                                type="solid"
+                            />
                         )
                     })}
                 </View>

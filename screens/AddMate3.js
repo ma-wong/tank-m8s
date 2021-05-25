@@ -12,17 +12,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    button: {
-        backgroundColor: "blue",
-        padding: 20,
-        borderRadius: 5,
-        marginTop: "1rem"
-    },
-    buttonText: {
-        fontSize: 20,
-        color: '#fff',
-        textAlign: "center"
-    },
     checkboxContainer: {
         flexDirection: "row",
         marginBottom: 20,
