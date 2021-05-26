@@ -6,6 +6,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import AddMate1 from "./screens/AddMate1";
 import Home from "./screens/Home";
 import AddMate3 from "./screens/AddMate3";
+import AddTankMate from "./screens/AddTankMate";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -23,13 +24,17 @@ function App() {
           component={Home}
         />
         <Tab.Screen
-          name="Add A Tank Mate"
+          name="Add Mate 1"
           component={AddMate1}
         />
         <Tab.Screen
           name="Add Mate 3/4"
           component={AddMate3}
         />
+        {/* <Tab.Screen
+          name="Add A Tank Mate"
+          component={AddTankMate}
+        /> */}
         
       </Tab.Navigator>
     </NavigationContainer>
