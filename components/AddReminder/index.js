@@ -6,7 +6,7 @@ import DateTimePicker from 'react-datetime-picker'
 // import TimePicker from 'react-time-picker/dist/TimePicker.css';
 import UserInput from "../UserInput";
 import Dropdown from "../Dropdown";
-import { Button } from 'react-native-elements';
+import { FAB, Button } from 'react-native-elements';
 
 
 function AddReminder ({ text }) {
@@ -18,10 +18,17 @@ function AddReminder ({ text }) {
   const repeatOptions = [{id: 1, name: "Never"}, {id: 2, name: "Once a day"}, {id: 3, name: "Once a week"}, {id: 4, name: "Once a month"} ];
   
   const toggleSnooze = () => setSnooze(previousState => !previousState);
-  
-  function consoleDate() {
-    console.log(time);
+
+  function saveReminder() {
+    let postData = {
+      name: label,
+      repeat: repeatValue,
+      snooze: snooze,
+      dateTime: time
+    }
+    console.log(postData);
   }
+
   return (
     <View>
 
@@ -36,13 +43,6 @@ function AddReminder ({ text }) {
         dayPlaceholder = "dd"
         monthPlaceholder = "mm"
         yearPlaceholder = "yyyy"
-      />
-      
-      <Button
-        buttonStyle= {styles.button}
-        title="hello"
-        type="solid"
-        onPress={consoleDate}
       />
 
       <Text>Label</Text>
@@ -67,6 +67,14 @@ function AddReminder ({ text }) {
         onValueChange={toggleSnooze}
         value={snooze}
       />
+
+      <FAB 
+        title="Save" 
+        color= "green"
+        onPress= {saveReminder}
+        size= "small"
+      />
+      
     </View>
   );
 }
@@ -75,8 +83,9 @@ export default AddReminder;
 
 
 const styles = StyleSheet.create({
-  timePicker: {
-    color: "blue"
+  button: {
+   borderColor: "red"
+
   }
  
 });

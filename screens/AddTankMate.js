@@ -5,9 +5,6 @@ import Dropdown from "../components/Dropdown";
 import UserInput from "../components/UserInput";
 import AddReminder from "../components/AddReminder";
 import Bttn from "../components/Bttn";
-import { StatusBar } from 'expo-status-bar';
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +43,7 @@ class AddTankMate extends Component {
         super(props)
 
         this.state = {
-            selectedTank: "hello",
+            selectedTank: 1,
             tankOptions: [ {id: 1, name: "Tank 1"}, {id: 2, name: "Tank 2"}, {id: 3, name: "Tank 3"} ],
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
             selectedType: "",
@@ -118,6 +115,17 @@ class AddTankMate extends Component {
         
     }
     
+    createTankMate = () => {
+        var postData = {
+            tankId: this.state.selectedTank,
+            type: this.state.selectedType,
+            name: this.state.mateName,
+            species: this.state.species,
+            reminder: this.state.reminderSelected
+        }
+        console.log(postData);
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
@@ -199,7 +207,8 @@ class AddTankMate extends Component {
                 </View>
 
                 <Bttn 
-                    text= "Create Mate"                
+                    text= "Create Mate"
+                    onPress= {this.createTankMate}            
                 />
 
               </ScrollView>

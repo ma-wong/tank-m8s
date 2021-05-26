@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 })
 
 
-function Bttn({ onSubmit, text }) {
+function Bttn({ text , onPress }) {
   return (
     <View>
       
@@ -21,6 +21,7 @@ function Bttn({ onSubmit, text }) {
             buttonStyle= {styles.button}
             title={text}
             type="solid"
+            onPress= {onPress}
         />
 
     </View>

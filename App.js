@@ -23,14 +23,14 @@ function App() {
           name="Home"
           component={Home}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Add Mate 1"
           component={AddMate1}
         />
         <Tab.Screen
           name="Add Mate 3/4"
           component={AddMate3}
-        />
+        /> */}
         <Tab.Screen
           name="Add A Tank Mate"
           component={AddTankMate}
