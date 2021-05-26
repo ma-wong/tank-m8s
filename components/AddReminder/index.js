@@ -33,6 +33,9 @@ function AddReminder ({ text }) {
         hourPlaceholder="00"
         minutePlaceholder="00"
         autoFocus={true}
+        dayPlaceholder = "dd"
+        monthPlaceholder = "mm"
+        yearPlaceholder = "yyyy"
       />
       
       <Button

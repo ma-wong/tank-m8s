@@ -13,30 +13,30 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: 'gray',
-      // alignItems: 'center',
+      alignItems: 'center',
       justifyContent: 'center',
       marginVertical: 20
-  },
-  scrollView: {
-    marginHorizontal: 20,
-    backgroundColor: "pink"
-  },
-  button: {
-      backgroundColor: "black",
-      padding: 20,
-      borderRadius: 10,
-      marginTop: "1rem",
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  checkbox: {
-      alignSelf: "center",
-  },
-  label: {
-      margin: 8,
-  }
+    },
+    scrollView: {
+        marginHorizontal: 20,
+        backgroundColor: "pink"
+    },
+    button: {
+        backgroundColor: "black",
+        padding: 20,
+        borderRadius: 10,
+        marginTop: "1rem",
+    },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+    },
+    checkbox: {
+        alignSelf: "center",
+    },
+    label: {
+        margin: 8,
+    }
    
 });
 
@@ -84,39 +84,39 @@ class AddTankMate extends Component {
     }
 
     setName = (mateName) => {
-      if (this.state.mateName === "") {
-          this.setState({
-              progressVal: this.state.progressVal+0.15
-          })
-      }
-      this.setState({
-          mateName: mateName
-      }, () => {
-          console.log(this.state.mateName)
-      })
-  }
+        if (this.state.mateName === "") {
+            this.setState({
+                progressVal: this.state.progressVal+0.15
+            })
+        }
+        this.setState({
+            mateName: mateName
+        }, () => {
+            console.log(this.state.mateName)
+        })
+    }
 
-  setSpecies = (species) => {
-      this.setState({
-          species: species
-      }, () => {
-          console.log(this.state.species)
-      })
-  }
+    setSpecies = (species) => {
+        this.setState({
+            species: species
+        }, () => {
+            console.log(this.state.species)
+        })
+    }
 
-  setSelection = () => {
-      if (this.state.reminderSelected === false) {
-          this.setState({
-              reminderSelected: true
-          })
-      }
-      else {
-          this.setState({
-              reminderSelected: false
-          })
-      }
-      
-  }
+    setSelection = () => {
+        if (this.state.reminderSelected === false) {
+            this.setState({
+                reminderSelected: true
+            })
+        }
+        else {
+            this.setState({
+                reminderSelected: false
+            })
+        }
+        
+    }
     
     render() {
         return (
