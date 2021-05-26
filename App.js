@@ -31,10 +31,10 @@ function App() {
           name="Add Mate 3/4"
           component={AddMate3}
         />
-        {/* <Tab.Screen
+        <Tab.Screen
           name="Add A Tank Mate"
           component={AddTankMate}
-        /> */}
+        />
         
       </Tab.Navigator>
     </NavigationContainer>
