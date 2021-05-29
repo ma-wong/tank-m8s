@@ -7,22 +7,23 @@ import AddReminder from "../components/AddReminder";
 import Bttn from "../components/Bttn";
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
       flex: 1,
       backgroundColor: 'gray',
-      alignItems: 'center',
       justifyContent: 'center',
-      marginVertical: 20
+      marginVertical: 20,
     },
     scrollView: {
         marginHorizontal: 20,
-        backgroundColor: "pink"
+        backgroundColor: "pink",
     },
     button: {
         backgroundColor: "black",
         padding: 20,
         borderRadius: 10,
-        marginTop: "1rem",
+        // marginTop: "1rem",
+        // width: 100,
+        flex: 1
     },
     checkboxContainer: {
         flexDirection: "row",
@@ -33,6 +34,12 @@ const styles = StyleSheet.create({
     },
     label: {
         margin: 8,
+    },
+    view: {
+        alignItems: "center"
+    },
+    leftAlign: {
+        textAlign: "left"
     }
    
 });
@@ -139,42 +146,49 @@ class AddTankMate extends Component {
                 <View >
                     <Text>Step 1:</Text>
                     <Text>Choose a tank to add to</Text>
-
+                </View>
+                <View style={styles.view}>
                     <Dropdown
                         selectedItem= {this.state.selectedTank}
                         setSelectedValue= {this.setSelectedTank}
                         itemOptions= {this.state.tankOptions}
                     />
                 </View>
+                
 
                 <View>
                     <Text>Step 2:</Text>
                     <Text>Choose the type of mate</Text>
+                </View>
 
-                    {this.state.mateTypes.map((elem, index) => {
-                        return (
-                            <Button
-                                onPress={event => this.setSelectedType(event, index)}
-                                buttonStyle={styles.button}
-                                activeOpacity={.5}
-                                title= {elem}
-                                type="solid"
-                            />
-                        )
-                    })}
+                <View style={styles.view}>
+                    <View style={{flex: 1, flexDirection: "row"}}>
+                        {this.state.mateTypes.map((elem, index) => {
+                            return (
+                                <Button
+                                    onPress={event => this.setSelectedType(event, index)}
+                                    buttonStyle={styles.button}
+                                    activeOpacity={.5}
+                                    title= {elem}
+                                    type="solid"
+                                />
+                            )
+                        })}
+                    </View>
+                    
                 </View>
 
                 <View >
                     <Text>Step 3:</Text>
                     <Text>Upload a photo (optional)</Text>
-
-                    
                 </View>
 
                 <View>
                     <Text>Step 4:</Text>
                     <Text>Tell us a little bit about them</Text>
-                    
+                </View>
+
+                <View style={styles.view} >
                     <Text>Name</Text>
                     <UserInput
                         text= {this.state.mateName}
@@ -189,27 +203,30 @@ class AddTankMate extends Component {
                         placeholder= "Gold Fish"
                     />
                 </View>
-
-                <View style={styles.checkboxContainer}>
-                    <CheckBox
-                        value={this.state.reminderSelected}
-                        onValueChange={this.setSelection}
-                        style={styles.checkbox}
-                    />
-                    
-                    <Text style={styles.label}>Add Reminder</Text>
+                
+                <View>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                            value={this.state.reminderSelected}
+                            onValueChange={this.setSelection}
+                            style={styles.checkbox}
+                        />
+                        
+                        <Text style={styles.label}>Add Reminder</Text>
+                    </View>
                 </View>
+                
                 <View>
                     {this.state.reminderSelected && 
-                    <AddReminder 
-                    
-                    />}
+                    <AddReminder />}
                 </View>
 
-                <Bttn 
-                    text= "Create Mate"
-                    onPress= {this.createTankMate}            
-                />
+                <View style={styles.view} >
+                    <Bttn 
+                        text= "Create Mate"
+                        onPress= {this.createTankMate}     
+                    />
+                </View>
 
               </ScrollView>
             </SafeAreaView>

@@ -41,16 +41,16 @@ function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'gray',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    color: 'white'
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: 'gray',
+//     alignItems: 'center',
+//     justifyContent: 'center'
+//   },
+//   text: {
+//     color: 'white'
+//   }
+// });
 
 export default App;
