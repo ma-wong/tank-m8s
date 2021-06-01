@@ -5,6 +5,7 @@ import Dropdown from "../components/Dropdown";
 import UserInput from "../components/UserInput";
 import AddReminder from "../components/AddReminder";
 import Bttn from "../components/Bttn";
+import ModalView from '../components/ModalView';
 
 const styles = StyleSheet.create({
     container: {
@@ -215,6 +216,8 @@ class AddTankMate extends Component {
                         <Text style={styles.label}>Add Reminder</Text>
                     </View>
                 </View>
+
+                <ModalView />
                 
                 <View>
                     {this.state.reminderSelected && 
