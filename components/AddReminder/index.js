@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Switch, StyleSheet} from "react-native";
 // import TimePicker from 'react-time-picker';
-import DateTimePicker from 'react-datetime-picker'
+// import DateTimePicker from 'react-datetime-picker'
 // import 'react-clock/dist/Clock.css';
 // import TimePicker from 'react-time-picker/dist/TimePicker.css';
 import UserInput from "../UserInput";
@@ -9,7 +9,7 @@ import Dropdown from "../Dropdown";
 import { FAB, Button } from 'react-native-elements';
 
 
-function AddReminder ({ text }) {
+function AddReminder ({ toggleOverlay }) {
   const [label, onChangeLabel] = React.useState("");
   const [repeatValue, setRepeatValue] = React.useState("Never");
   const [snooze, setSnooze] = React.useState(false);
@@ -26,6 +26,7 @@ function AddReminder ({ text }) {
       snooze: snooze,
       dateTime: time
     }
+    toggleOverlay();
     console.log(postData);
   }
 
@@ -33,7 +34,7 @@ function AddReminder ({ text }) {
     <View>
 
       <Text>Time</Text>
-      <DateTimePicker
+      {/* <DateTimePicker
         onChange={setTime}
         value={time}
         disableClock={true}
@@ -43,7 +44,7 @@ function AddReminder ({ text }) {
         dayPlaceholder = "dd"
         monthPlaceholder = "mm"
         yearPlaceholder = "yyyy"
-      />
+      /> */}
 
       <Text>Label</Text>
       <UserInput 

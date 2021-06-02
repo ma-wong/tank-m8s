@@ -18,7 +18,7 @@ import AddReminder from "../AddReminder";
 //       >
 //         <View style={styles.centeredView}>
 //           <View style={styles.modalView}>
-//             <AddReminder/>
+//             <Text style={styles.modalText}>Hello World!</Text>
 //             <Pressable
 //               style={[styles.button, styles.buttonClose]}
 //               onPress={() => setModalVisible(!modalVisible)}
@@ -84,7 +84,7 @@ import AddReminder from "../AddReminder";
 
 // export default ModalView;
 
-const ModalView = () => {
+const ModalView = ({ label }) => {
   const [visible, setVisible] = useState(false);
 
   const toggleOverlay = () => {
@@ -93,10 +93,19 @@ const ModalView = () => {
 
   return (
     <View>
-      <Button title="Open Overlay" onPress={toggleOverlay} />
+      <Button title={label} onPress={toggleOverlay} />
 
-      <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-        <AddReminder/>
+      <Overlay
+        isVisible={visible}
+        onBackdropPress={toggleOverlay}
+        animationType="slide"
+        // fullScreen= {true}
+        
+      >
+        <AddReminder 
+          toggleOverlay= {toggleOverlay}
+        />
+        {/* <Text>Hello</Text> */}
       </Overlay>
     </View>
   );

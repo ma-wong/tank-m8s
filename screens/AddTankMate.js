@@ -12,11 +12,12 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: 'gray',
       justifyContent: 'center',
-      marginVertical: 20,
+    //   alignItems: 'center'
+    //   marginVertical: 20
     },
     scrollView: {
-        marginHorizontal: 20,
-        backgroundColor: "pink",
+        // marginHorizontal: 20,
+        // backgroundColor: "pink",
     },
     button: {
         backgroundColor: "black",
@@ -39,9 +40,9 @@ const styles = StyleSheet.create({
     view: {
         alignItems: "center"
     },
-    leftAlign: {
-        textAlign: "left"
-    }
+    // leftAlign: {
+    //     textAlign: "left"
+    // }
    
 });
 
@@ -189,7 +190,7 @@ class AddTankMate extends Component {
                     <Text>Tell us a little bit about them</Text>
                 </View>
 
-                <View style={styles.view} >
+                <View>
                     <Text>Name</Text>
                     <UserInput
                         text= {this.state.mateName}
@@ -205,7 +206,7 @@ class AddTankMate extends Component {
                     />
                 </View>
                 
-                <View>
+                {/* <View>
                     <View style={styles.checkboxContainer}>
                         <CheckBox
                             value={this.state.reminderSelected}
@@ -215,14 +216,17 @@ class AddTankMate extends Component {
                         
                         <Text style={styles.label}>Add Reminder</Text>
                     </View>
-                </View>
+                </View> */}
 
-                <ModalView />
+                <ModalView 
+                    label= "Add Reminder"
                 
-                <View>
+                />
+                
+                {/* <View>
                     {this.state.reminderSelected && 
                     <AddReminder />}
-                </View>
+                </View> */}
 
                 <View style={styles.view} >
                     <Bttn 
