@@ -7,7 +7,7 @@ function Dropdown( {selectedItem, itemOptions, setSelectedValue } ) {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <View style={{zIndex: 100}}>
+    <View style={{zIndex: 100, alignItems:"center"}}>
 
       <DropDownPicker
         open={open}
@@ -20,7 +20,6 @@ function Dropdown( {selectedItem, itemOptions, setSelectedValue } ) {
           width: 350,
           marginBottom: 50
         }}
-        zIndex={2000}
         maxHeight={100}
       />
 

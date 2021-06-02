@@ -124,13 +124,11 @@ class AddTankMate extends Component {
                     <Text>Choose a tank to add to</Text>
                 </View>
 
-                <View style={styles.view}>
-                    <Dropdown
-                        selectedItem= {this.state.selectedTank}
-                        setSelectedValue= {this.setSelectedTank}
-                        itemOptions= {this.state.tankOptions}                     
-                    />
-                </View>
+                <Dropdown
+                    selectedItem= {this.state.selectedTank}
+                    setSelectedValue= {this.setSelectedTank}
+                    itemOptions= {this.state.tankOptions}                     
+                />
                 
 
                 <View>
