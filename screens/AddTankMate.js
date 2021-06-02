@@ -27,16 +27,6 @@ const styles = StyleSheet.create({
         // width: 100,
         flex: 1
     },
-    checkboxContainer: {
-        flexDirection: "row",
-        marginBottom: 20,
-    },
-    checkbox: {
-        alignSelf: "center",
-    },
-    label: {
-        margin: 8,
-    },
     view: {
         alignItems: "center"
     },
@@ -57,8 +47,7 @@ class AddTankMate extends Component {
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
             selectedType: "",
             mateName: "",
-            species: "",
-            reminderSelected: false
+            species: ""
         }
     }
 
@@ -108,20 +97,6 @@ class AddTankMate extends Component {
         }, () => {
             console.log(this.state.species)
         })
-    }
-
-    setSelection = () => {
-        if (this.state.reminderSelected === false) {
-            this.setState({
-                reminderSelected: true
-            })
-        }
-        else {
-            this.setState({
-                reminderSelected: false
-            })
-        }
-        
     }
     
     createTankMate = () => {
@@ -206,27 +181,11 @@ class AddTankMate extends Component {
                     />
                 </View>
                 
-                {/* <View>
-                    <View style={styles.checkboxContainer}>
-                        <CheckBox
-                            value={this.state.reminderSelected}
-                            onValueChange={this.setSelection}
-                            style={styles.checkbox}
-                        />
-                        
-                        <Text style={styles.label}>Add Reminder</Text>
-                    </View>
-                </View> */}
-
-                <ModalView 
-                    label= "Add Reminder"
-                
-                />
-                
-                {/* <View>
-                    {this.state.reminderSelected && 
-                    <AddReminder />}
-                </View> */}
+                <View>
+                    <ModalView 
+                        label= "Add Reminder"
+                    />
+                </View>
 
                 <View style={styles.view} >
                     <Bttn 
