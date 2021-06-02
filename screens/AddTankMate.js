@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     //   marginVertical: 20
     },
     scrollView: {
-        // marginHorizontal: 20,
-        // backgroundColor: "pink",
+        marginHorizontal: 10,
+        backgroundColor: "pink",
     },
     button: {
         backgroundColor: "black",
@@ -133,7 +133,7 @@ class AddTankMate extends Component {
                 </View>
                 
 
-                <View style= {{marginTop: 100}}>
+                <View>
                     <Text>Step 2:</Text>
                     <Text>Choose the type of mate</Text>
                 </View>
@@ -184,6 +184,7 @@ class AddTankMate extends Component {
                 <View>
                     <ModalView 
                         label= "Add Reminder"
+                        fullscreen= {true}
                     />
                 </View>
 
