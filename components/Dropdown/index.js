@@ -1,26 +1,23 @@
 import React from "react";
-import { View, Picker } from "react-native";
+import { View } from "react-native";
 
-function Dropdown ({ selectedItem, itemOptions, setSelectedValue }) {
-  
+import DropDownPicker from 'react-native-dropdown-picker';
+
+function Dropdown( {selectedItem, itemOptions, setSelectedValue } ) {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <View>
-      <Picker
-        selectedItem= {selectedItem}
-        style={{ height: 50, width: 150 }}
-        onValueChange={setSelectedValue}
-      >
-        {itemOptions.map((value) => {
-          return (
-            <Picker.Item
-              key={value.id}
-              label={value.name} 
-              value={value.id}
-            />
-          )
-        })}
-        
-      </Picker>
+
+      <DropDownPicker
+        open={open}
+        value={selectedItem}
+        items={itemOptions}
+        setOpen={setOpen}
+        setValue={setSelectedValue}
+        // setItems={setItems}
+      />
+
     </View>
   );
 }

@@ -29,10 +29,7 @@ const styles = StyleSheet.create({
     },
     view: {
         alignItems: "center"
-    },
-    // leftAlign: {
-    //     textAlign: "left"
-    // }
+    }
    
 });
 
@@ -43,27 +40,28 @@ class AddTankMate extends Component {
 
         this.state = {
             selectedTank: 1,
-            tankOptions: [ {id: 1, name: "Tank 1"}, {id: 2, name: "Tank 2"}, {id: 3, name: "Tank 3"} ],
+            tankOptions: [ {value: 1, label: "Tank 1"}, {value: 2, label: "Tank 2"}, {value: 3, label: "Tank 3"} ],
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
             selectedType: "",
             mateName: "",
             species: ""
         }
+        this.setSelectedTank = this.setSelectedTank.bind(this);
     }
 
-    setSelectedTank = (itemValue, itemIndex) => {
-        this.setState({
-            selectedTank: itemValue
-        }, function() {
+    setSelectedTank(callback) {
+        this.setState(state => ({
+          selectedTank: callback(state.selectedTank)
+        }), function() {
             console.log(this.state.selectedTank)
-        })
-        if (this.state.progressVal === 0) {
-            this.setState({
-                progressVal: this.state.progressVal+0.15
-            })
-        }
-        
+        });
     }
+
+    // setItems(callback) {
+    //     this.setState(state => ({
+    //       items: callback(state.items)
+    //     }));
+    // }
 
     setSelectedType = (event, index) => {
         this.setState({
@@ -120,20 +118,22 @@ class AddTankMate extends Component {
                     trackColor="white"
                     variant="determinate"
                 /> */}
+
                 <View >
                     <Text>Step 1:</Text>
                     <Text>Choose a tank to add to</Text>
                 </View>
+
                 <View style={styles.view}>
                     <Dropdown
                         selectedItem= {this.state.selectedTank}
                         setSelectedValue= {this.setSelectedTank}
-                        itemOptions= {this.state.tankOptions}
+                        itemOptions= {this.state.tankOptions}                     
                     />
                 </View>
                 
 
-                <View>
+                <View style= {{marginTop: 100}}>
                     <Text>Step 2:</Text>
                     <Text>Choose the type of mate</Text>
                 </View>

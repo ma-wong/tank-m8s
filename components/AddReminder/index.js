@@ -15,7 +15,7 @@ function AddReminder ({ toggleOverlay }) {
   const [snooze, setSnooze] = React.useState(false);
   const [time, setTime] = React.useState('');
 
-  const repeatOptions = [{id: 1, name: "Never"}, {id: 2, name: "Once a day"}, {id: 3, name: "Once a week"}, {id: 4, name: "Once a month"} ];
+  const repeatOptions = [{value: 1, label: "Never"}, {value: 2, label: "Once a day"}, {value: 3, label: "Once a week"}, {value: 4, label: "Once a month"} ];
   
   const toggleSnooze = () => setSnooze(previousState => !previousState);
 
