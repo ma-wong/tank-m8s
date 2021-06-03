@@ -22,6 +22,7 @@ function UserInput ({ text, onChangeText, placeholder }) {
         onChangeText={onChangeText}
         value={text}
         placeholder={placeholder}
+        keyboardAppearance= 'dark'
       />
       
     </View>

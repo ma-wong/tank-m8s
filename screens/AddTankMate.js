@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         marginHorizontal: 10,
-        padding: 10
+        padding: 10,
     },
     button: {
         backgroundColor: "black",
@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
     },
     steps: {
         marginBottom: 20
+    },
+    text: {
+        fontSize: 25,
     }
    
 });
@@ -131,7 +134,7 @@ class AddTankMate extends Component {
                 /> */}
 
                 <View >
-                    <Text>Step 1:</Text>
+                    <Text style={styles.text}>Step 1:</Text>
                     <Text>Choose a tank to add to</Text>
                 </View>
 
@@ -143,8 +146,8 @@ class AddTankMate extends Component {
                 
 
                 <View>
-                    <Text>Step 2:</Text>
-                    <Text>Choose the type of mate</Text>
+                    <Text style={styles.text}>Step 2:</Text>
+                    <Text >Choose the type of mate</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
@@ -164,12 +167,12 @@ class AddTankMate extends Component {
                 
 
                 <View style={styles.steps}>
-                    <Text>Step 3:</Text>
+                    <Text style={styles.text}>Step 3:</Text>
                     <Text>Upload a photo (optional)</Text>
                 </View>
 
                 <View>
-                    <Text>Step 4:</Text>
+                    <Text style={styles.text}>Step 4:</Text>
                     <Text>Tell us a little bit about them</Text>
                 </View>
 
