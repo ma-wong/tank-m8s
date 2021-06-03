@@ -5,6 +5,7 @@ import Dropdown from "../components/Dropdown";
 import UserInput from "../components/UserInput";
 import Bttn from "../components/Bttn";
 import ModalView from '../components/ModalView';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const styles = StyleSheet.create({
     container: {
@@ -125,7 +126,7 @@ class AddTankMate extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-              <ScrollView style={styles.scrollView}>
+                <ScrollView style={styles.scrollView}>
                 {/* <LinearProgress 
                     color="black"
                     value={this.state.progressVal}
@@ -133,80 +134,89 @@ class AddTankMate extends Component {
                     variant="determinate"
                 /> */}
 
-                <View >
-                    <Text style={styles.text}>Step 1:</Text>
-                    <Text>Choose a tank to add to</Text>
-                </View>
+                <KeyboardAwareScrollView
+                    style={{ backgroundColor: 'gray'}}
+                    resetScrollToCoords={{ x: 0, y: 0 }}
+                    // contentContainerStyle={styles.container}
+                    scrollEnabled={false}
+                >
 
-                <Dropdown
-                    selectedItem= {this.state.selectedTank}
-                    setSelectedValue= {this.setSelectedTank}
-                    itemOptions= {this.state.tankOptions}                     
-                />
-                
+                    <View >
+                        <Text style={styles.text}>Step 1:</Text>
+                        <Text>Choose a tank to add to</Text>
+                    </View>
 
-                <View>
-                    <Text style={styles.text}>Step 2:</Text>
-                    <Text >Choose the type of mate</Text>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    {this.state.mateTypes.map((elem, index) => {
-                        return (
-                            <Button
-                                onPress={event => this.setSelectedType(event, index)}
-                                buttonStyle={styles.button}
-                                activeOpacity={.5}
-                                title= {elem}
-                                type="solid"
-                                titleStyle={styles.buttonText}
-                            />
-                        )
-                    })}
-                </View>
-                
-
-                <View style={styles.steps}>
-                    <Text style={styles.text}>Step 3:</Text>
-                    <Text>Upload a photo (optional)</Text>
-                </View>
-
-                <View>
-                    <Text style={styles.text}>Step 4:</Text>
-                    <Text>Tell us a little bit about them</Text>
-                </View>
-
-                <View style={styles.steps}>
-                    <Text>Name</Text>
-                    <UserInput
-                        text= {this.state.mateName}
-                        onChangeText= {this.setName}
-                        placeholder= "Chowdie"
+                    <Dropdown
+                        selectedItem= {this.state.selectedTank}
+                        setSelectedValue= {this.setSelectedTank}
+                        itemOptions= {this.state.tankOptions}                     
                     />
+                    
 
-                    <Text>Species</Text>
-                    <UserInput 
-                        text= {this.state.species}
-                        onChangeText= {this.setSpecies}
-                        placeholder= "Gold Fish"
-                    />
-                </View>
-                
-                <View style={styles.steps}>
-                    <ModalView 
-                        label= "Add Reminder"
-                        fullscreen= {true}
-                    />
-                </View>
+                    <View>
+                        <Text style={styles.text}>Step 2:</Text>
+                        <Text >Choose the type of mate</Text>
+                    </View>
 
-                <View style={styles.view} >
-                    <Bttn 
-                        text= "Create Mate"
-                        onPress= {this.createTankMate}     
-                    />
-                </View>
+                    <View style={styles.buttonContainer}>
+                        {this.state.mateTypes.map((elem, index) => {
+                            return (
+                                <Button
+                                    onPress={event => this.setSelectedType(event, index)}
+                                    buttonStyle={styles.button}
+                                    activeOpacity={.5}
+                                    title= {elem}
+                                    type="solid"
+                                    titleStyle={styles.buttonText}
+                                />
+                            )
+                        })}
+                    </View>
+                    
 
-              </ScrollView>
+                    <View style={styles.steps}>
+                        <Text style={styles.text}>Step 3:</Text>
+                        <Text>Upload a photo (optional)</Text>
+                    </View>
+
+                    <View>
+                        <Text style={styles.text}>Step 4:</Text>
+                        <Text>Tell us a little bit about them</Text>
+                    </View>
+
+                    <View style={styles.steps}>
+                        <Text>Name</Text>
+                        <UserInput
+                            text= {this.state.mateName}
+                            onChangeText= {this.setName}
+                            placeholder= "Chowdie"
+                        />
+
+                        <Text>Species</Text>
+                        <UserInput 
+                            text= {this.state.species}
+                            onChangeText= {this.setSpecies}
+                            placeholder= "Gold Fish"
+                        />
+                    </View>
+                    
+                    <View style={styles.steps}>
+                        <ModalView 
+                            label= "Add Reminder"
+                            fullscreen= {true}
+                        />
+                    </View>
+
+                    <View style={styles.view} >
+                        <Bttn 
+                            text= "Create Mate"
+                            onPress= {this.createTankMate}     
+                        />
+                    </View>
+
+                </KeyboardAwareScrollView>
+                </ScrollView>
+              
             </SafeAreaView>
         );
     }
