@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, CheckBox } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Button, LinearProgress } from 'react-native-elements';
 import Dropdown from "../components/Dropdown";
 import UserInput from "../components/UserInput";
-import AddReminder from "../components/AddReminder";
 import Bttn from "../components/Bttn";
 import ModalView from '../components/ModalView';
 
@@ -17,18 +16,31 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         marginHorizontal: 10,
-        backgroundColor: "pink",
+        padding: 10
     },
     button: {
         backgroundColor: "black",
         padding: 20,
         borderRadius: 10,
-        // marginTop: "1rem",
-        // width: 100,
-        flex: 1
+        width: 165,
+        height: 110,
+        margin: 5
     },
     view: {
         alignItems: "center"
+    },
+    buttonContainer: {
+        flexWrap: 'wrap',
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        marginBottom: 20
+    },
+    buttonText: {
+        fontSize: 23
+    },
+    steps: {
+        marginBottom: 20
     }
    
 });
@@ -39,7 +51,7 @@ class AddTankMate extends Component {
         super(props)
 
         this.state = {
-            selectedTank: 1,
+            selectedTank: null,
             tankOptions: [ {value: 1, label: "Tank 1"}, {value: 2, label: "Tank 2"}, {value: 3, label: "Tank 3"} ],
             mateTypes: ["Plant", "Fish", "Amphibian", "Invertebrate"],
             selectedType: "",
@@ -102,8 +114,7 @@ class AddTankMate extends Component {
             tankId: this.state.selectedTank,
             type: this.state.selectedType,
             name: this.state.mateName,
-            species: this.state.species,
-            reminder: this.state.reminderSelected
+            species: this.state.species
         }
         console.log(postData);
     }
@@ -136,24 +147,23 @@ class AddTankMate extends Component {
                     <Text>Choose the type of mate</Text>
                 </View>
 
-                <View style={styles.view}>
-                    <View style={{flex: 1, flexDirection: "row"}}>
-                        {this.state.mateTypes.map((elem, index) => {
-                            return (
-                                <Button
-                                    onPress={event => this.setSelectedType(event, index)}
-                                    buttonStyle={styles.button}
-                                    activeOpacity={.5}
-                                    title= {elem}
-                                    type="solid"
-                                />
-                            )
-                        })}
-                    </View>
-                    
+                <View style={styles.buttonContainer}>
+                    {this.state.mateTypes.map((elem, index) => {
+                        return (
+                            <Button
+                                onPress={event => this.setSelectedType(event, index)}
+                                buttonStyle={styles.button}
+                                activeOpacity={.5}
+                                title= {elem}
+                                type="solid"
+                                titleStyle={styles.buttonText}
+                            />
+                        )
+                    })}
                 </View>
+                
 
-                <View >
+                <View style={styles.steps}>
                     <Text>Step 3:</Text>
                     <Text>Upload a photo (optional)</Text>
                 </View>
@@ -163,7 +173,7 @@ class AddTankMate extends Component {
                     <Text>Tell us a little bit about them</Text>
                 </View>
 
-                <View>
+                <View style={styles.steps}>
                     <Text>Name</Text>
                     <UserInput
                         text= {this.state.mateName}
@@ -179,7 +189,7 @@ class AddTankMate extends Component {
                     />
                 </View>
                 
-                <View>
+                <View style={styles.steps}>
                     <ModalView 
                         label= "Add Reminder"
                         fullscreen= {true}

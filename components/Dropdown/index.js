@@ -18,7 +18,7 @@ function Dropdown( {selectedItem, itemOptions, setSelectedValue } ) {
         // setItems={setItems}
         containerStyle={{
           width: 350,
-          marginBottom: 50
+          marginBottom: 20
         }}
         maxHeight={100}
       />

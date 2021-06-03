@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Button, Overlay } from 'react-native-elements';
 import AddReminder from "../AddReminder";
 
@@ -12,7 +12,7 @@ const ModalView = ({ label }) => {
 
   return (
     <View>
-      <Button title={label} onPress={toggleOverlay} />
+      <Button style={styles.button} title={label} onPress={toggleOverlay} />
 
       <Overlay
         isVisible={visible}
@@ -24,10 +24,15 @@ const ModalView = ({ label }) => {
         <AddReminder 
           toggleOverlay= {toggleOverlay}
         />
-        {/* <Text>Hello</Text> */}
       </Overlay>
     </View>
   );
 };
 
 export default ModalView;
+
+const styles = StyleSheet.create({
+  button: {
+    width: 150,
+  }
+})

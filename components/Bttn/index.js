@@ -6,7 +6,7 @@ import { Button } from 'react-native-elements';
 const styles = StyleSheet.create({
     button: {
       padding: 10,
-      width: 200,
+      width: 300,
       borderRadius: 10,
       backgroundColor: "black"
     }

@@ -5,15 +5,17 @@ import { View, TextInput, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    margin: 12,
     borderWidth: 1,
   },
+  container: {
+    marginVertical: 5
+  }
 });
 
 function UserInput ({ text, onChangeText, placeholder }) {
   
   return (
-    <View>
+    <View style={styles.container}>
 
       <TextInput
         style={styles.input}
