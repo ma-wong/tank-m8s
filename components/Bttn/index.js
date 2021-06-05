@@ -17,12 +17,12 @@ function Bttn({ text , onPress }) {
   return (
     <View>
       
-        <Button
-            buttonStyle= {styles.button}
-            title={text}
-            type="solid"
-            onPress= {onPress}
-        />
+      <Button
+          buttonStyle= {styles.button}
+          title={text}
+          type="solid"
+          onPress= {onPress}
+      />
 
     </View>
   );

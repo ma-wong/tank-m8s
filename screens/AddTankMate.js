@@ -6,6 +6,7 @@ import UserInput from "../components/UserInput";
 import Bttn from "../components/Bttn";
 import ModalView from '../components/ModalView';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import AutoCompInput from "../components/AutoCompInput";
 
 const styles = StyleSheet.create({
     container: {
@@ -213,6 +214,8 @@ class AddTankMate extends Component {
                             onPress= {this.createTankMate}     
                         />
                     </View>
+
+                    {/* <AutoCompInput/> */}
 
                 </KeyboardAwareScrollView>
                 </ScrollView>
